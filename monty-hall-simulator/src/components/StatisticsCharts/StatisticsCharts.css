@@ -1,0 +1,163 @@
+.statistics-charts {
+  padding: 20px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.statistics-charts h2 {
+  margin-bottom: 20px;
+  color: var(--text-primary);
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.chart-container {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.chart-container.full-width {
+  grid-column: 1 / -1;
+  min-width: 100%;
+}
+
+.chart-container h3 {
+  margin-bottom: 15px;
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* 自定义工具提示样式 */
+.custom-tooltip {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.tooltip-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.tooltip-item {
+  font-size: 13px;
+  margin: 4px 0;
+  font-weight: 500;
+}
+
+/* 统计表格样式 */
+.stats-table {
+  overflow-x: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.stats-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--table-bg);
+}
+
+.stats-table th,
+.stats-table td {
+  padding: 12px 8px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.stats-table th {
+  background: var(--table-header-bg);
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.stats-table td {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.stats-table tr:hover {
+  background: var(--table-hover-bg);
+}
+
+.strategy-name {
+  font-weight: 600;
+  color: var(--text-primary) !important;
+}
+
+.wins {
+  color: #10b981 !important;
+  font-weight: 600;
+}
+
+.losses {
+  color: #ef4444 !important;
+  font-weight: 600;
+}
+
+.win-rate {
+  color: var(--primary-color) !important;
+  font-weight: 700;
+  font-size: 14px !important;
+}
+
+.std-error,
+.confidence-interval {
+  font-family: 'Courier New', monospace;
+  font-size: 12px !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chart-container {
+    padding: 15px;
+  }
+  
+  .stats-table {
+    font-size: 12px;
+  }
+  
+  .stats-table th,
+  .stats-table td {
+    padding: 8px 4px;
+  }
+}
+
+/* 主题变量 */
+:root {
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: #d1d5db;
+  --border-light: #e5e7eb;
+  --card-bg: #ffffff;
+  --bg-secondary: #ffffff;
+  --table-bg: #ffffff;
+  --table-header-bg: #f8fafc;
+  --table-hover-bg: #f1f5f9;
+}

@@ -1,0 +1,182 @@
+.manual-game {
+  padding: 20px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.manual-game h2 {
+  margin-bottom: 20px;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.game-message {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+  min-height: 24px;
+}
+
+.doors-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.door {
+  width: 100px;
+  height: 150px;
+  border: 3px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--door-bg-start), var(--door-bg-end));
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.door:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.door.selected {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.door.opened {
+  background: var(--opened-door-bg);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.door.revealed {
+  background: var(--revealed-door-bg);
+  cursor: not-allowed;
+}
+
+.door-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.door-content {
+  font-size: 40px;
+  margin: 10px 0;
+}
+
+.selection-indicator {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.game-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.switch-decision {
+  display: flex;
+  gap: 20px;
+}
+
+.primary-button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.primary-button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.secondary-button {
+  background: var(--secondary-color);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondary-button:hover {
+  background: var(--secondary-hover);
+  transform: translateY(-1px);
+}
+
+.game-info {
+  background: var(--info-bg);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border-left: 4px solid var(--info-border);
+}
+
+.game-info p {
+  margin: 5px 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* 主题变量 */
+:root {
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --secondary-color: #f3f4f6;
+  --secondary-hover: #e5e7eb;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: #d1d5db;
+  --door-bg-start: #3b82f6;
+  --door-bg-end: #2563eb;
+  --opened-door-bg: #f9fafb;
+  --revealed-door-bg: #fef3c7;
+  --info-bg: #f0f9ff;
+  --info-border: #0ea5e9;
+  --bg-secondary: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .door {
+    transition: none;
+  }
+  
+  .primary-button, .secondary-button {
+    transition: none;
+  }
+}

@@ -1,0 +1,173 @@
+.settings {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.settings-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.settings-header h1 {
+  margin: 0 0 12px 0;
+  color: var(--text-primary);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.settings-description {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.settings-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.settings-section {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.settings-section h2 {
+  margin: 0 0 20px 0;
+  color: var(--text-primary);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.settings-item {
+  margin-top: 16px;
+}
+
+.accessibility-info {
+  background: var(--info-bg);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--info-border);
+}
+
+.accessibility-info h3 {
+  margin: 0 0 16px 0;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.accessibility-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-secondary);
+}
+
+.accessibility-list li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.shortcuts-info {
+  background: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.shortcuts-info h3 {
+  margin: 0 0 16px 0;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.shortcut-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+}
+
+.shortcut-item:last-child {
+  margin-bottom: 0;
+}
+
+kbd {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .settings {
+    padding: 16px;
+  }
+  
+  .settings-header h1 {
+    font-size: 28px;
+  }
+  
+  .settings-section {
+    padding: 20px;
+  }
+  
+  .settings-section h2 {
+    font-size: 18px;
+  }
+}
+
+/* 暗色主题适配 */
+.dark .settings-section {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.dark .accessibility-info {
+  background: var(--info-bg);
+  border-color: var(--info-border);
+}
+
+.dark .shortcuts-info {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.dark kbd {
+  background: var(--bg-primary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+/* 无障碍支持 */
+@media (prefers-reduced-motion: reduce) {
+  .settings-section {
+    transition: none;
+  }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+  .settings-section {
+    border-width: 2px;
+  }
+  
+  .accessibility-info,
+  .shortcuts-info {
+    border-width: 2px;
+  }
+}
