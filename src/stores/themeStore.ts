@@ -56,18 +56,18 @@ function updateCSSVariables(isDark: boolean) {
   const root = document.documentElement;
   
   if (isDark) {
-    // 暗色主题变量
-    root.style.setProperty('--bg-primary', '#1f2937');
-    root.style.setProperty('--bg-secondary', '#111827');
-    root.style.setProperty('--text-primary', '#f9fafb');
-    root.style.setProperty('--text-secondary', '#d1d5db');
-    root.style.setProperty('--border-color', '#374151');
-    root.style.setProperty('--card-bg', '#1f2937');
-    root.style.setProperty('--button-bg', '#374151');
-    root.style.setProperty('--button-hover', '#4b5563');
-    root.style.setProperty('--switcher-bg', '#374151');
-    root.style.setProperty('--info-bg', '#1e3a8a');
-    root.style.setProperty('--info-border', '#3b82f6');
+    // 深色主题使用深绿色系
+    root.style.setProperty('--bg-primary', '#0f2027');
+    root.style.setProperty('--bg-secondary', '#064e3b');
+    root.style.setProperty('--text-primary', '#f0fdf4');
+    root.style.setProperty('--text-secondary', '#bbf7d0');
+    root.style.setProperty('--border-color', '#166534');
+    root.style.setProperty('--card-bg', '#065f46');
+    root.style.setProperty('--button-bg', '#059669');
+    root.style.setProperty('--button-hover', '#10b981');
+    root.style.setProperty('--switcher-bg', '#047857');
+    root.style.setProperty('--info-bg', '#065f46');
+    root.style.setProperty('--info-border', '#10b981');
     root.style.setProperty('--success-bg', '#064e3b');
     root.style.setProperty('--success-text', '#10b981');
     root.style.setProperty('--success-border', '#059669');
@@ -75,18 +75,18 @@ function updateCSSVariables(isDark: boolean) {
     root.style.setProperty('--error-text', '#ef4444');
     root.style.setProperty('--error-border', '#dc2626');
   } else {
-    // 亮色主题变量
-    root.style.setProperty('--bg-primary', '#ffffff');
-    root.style.setProperty('--bg-secondary', '#f9fafb');
-    root.style.setProperty('--text-primary', '#1f2937');
-    root.style.setProperty('--text-secondary', '#6b7280');
-    root.style.setProperty('--border-color', '#d1d5db');
-    root.style.setProperty('--card-bg', '#ffffff');
-    root.style.setProperty('--button-bg', '#ffffff');
-    root.style.setProperty('--button-hover', '#f3f4f6');
-    root.style.setProperty('--switcher-bg', '#f9fafb');
-    root.style.setProperty('--info-bg', '#eff6ff');
-    root.style.setProperty('--info-border', '#dbeafe');
+    // 浅色主题使用淡绿色系
+    root.style.setProperty('--bg-primary', '#f0fdf4');
+    root.style.setProperty('--bg-secondary', '#dcfce7');
+    root.style.setProperty('--text-primary', '#14532d');
+    root.style.setProperty('--text-secondary', '#166534');
+    root.style.setProperty('--border-color', '#22c55e');
+    root.style.setProperty('--card-bg', '#f0fdf4');
+    root.style.setProperty('--button-bg', '#bbf7d0');
+    root.style.setProperty('--button-hover', '#22c55e');
+    root.style.setProperty('--switcher-bg', '#ecfdf5');
+    root.style.setProperty('--info-bg', '#dbeafe');
+    root.style.setProperty('--info-border', '#93c5fd');
     root.style.setProperty('--success-bg', '#f0fdf4');
     root.style.setProperty('--success-text', '#166534');
     root.style.setProperty('--success-border', '#bbf7d0');

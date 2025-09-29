@@ -1,3 +1,11 @@
+/* AutoSimulation.css - Main styles */
+
+/* Import modular stylesheets */
+@import './styles/config.css';
+@import './styles/controls.css';
+@import './styles/progress.css';
+
+/* Main container styles */
 .auto-simulation {
   padding: 20px;
   background: var(--bg-secondary);
@@ -9,97 +17,6 @@
   margin-bottom: 20px;
   color: var(--text-primary);
   text-align: center;
-}
-
-.simulation-config {
-  background: var(--config-bg);
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  border: 1px solid var(--border-color);
-}
-
-.simulation-config h3 {
-  margin-bottom: 15px;
-  color: var(--text-primary);
-  font-size: 18px;
-}
-
-.config-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-}
-
-.config-item {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.config-item label {
-  font-weight: 500;
-  color: var(--text-primary);
-  font-size: 14px;
-}
-
-.config-item input,
-.config-item select {
-  padding: 8px 12px;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  font-size: 14px;
-  background: var(--input-bg);
-  color: var(--text-primary);
-  transition: border-color 0.2s ease;
-}
-
-.config-item input:focus,
-.config-item select:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-.config-item input:disabled,
-.config-item select:disabled {
-  background: var(--disabled-bg);
-  cursor: not-allowed;
-}
-
-.simulation-controls {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.progress-container {
-  margin-bottom: 20px;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 20px;
-  background: var(--progress-bg);
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 8px;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
-  transition: width 0.3s ease;
-  border-radius: 10px;
-}
-
-.progress-text {
-  text-align: center;
-  font-size: 14px;
-  color: var(--text-secondary);
-  font-weight: 500;
 }
 
 .simulation-results {

@@ -1,0 +1,8 @@
+/* App.css - Main application styles */
+
+/* Import modular stylesheets */
+@import './styles/layout.css';
+@import './styles/header.css';
+@import './styles/footer.css';
+@import './styles/themes.css';
+@import './styles/accessibility.css';

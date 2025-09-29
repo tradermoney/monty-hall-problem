@@ -1,0 +1,67 @@
+/* Control buttons styles */
+.simulation-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.control-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.control-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.start-button {
+  background: var(--success-color);
+  color: white;
+}
+
+.start-button:hover:not(:disabled) {
+  background: var(--success-dark);
+  transform: translateY(-1px);
+}
+
+.pause-button {
+  background: var(--warning-color);
+  color: white;
+}
+
+.pause-button:hover:not(:disabled) {
+  background: var(--warning-dark);
+  transform: translateY(-1px);
+}
+
+.stop-button {
+  background: var(--error-color);
+  color: white;
+}
+
+.stop-button:hover:not(:disabled) {
+  background: var(--error-dark);
+  transform: translateY(-1px);
+}
+
+.reset-button {
+  background: var(--secondary-color);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.reset-button:hover:not(:disabled) {
+  background: var(--secondary-dark);
+  transform: translateY(-1px);
+}
