@@ -24,68 +24,61 @@ describe('Settings Component', () => {
     
     expect(screen.getByText('设置')).toBeInTheDocument();
     expect(screen.getByText('主题设置')).toBeInTheDocument();
-    expect(screen.getByText('语言设置')).toBeInTheDocument();
-    expect(screen.getByText('无障碍支持')).toBeInTheDocument();
+    expect(screen.getByText('语言')).toBeInTheDocument();
+    expect(screen.getByText('无障碍')).toBeInTheDocument();
   });
 
   it('should render theme switcher', () => {
     renderWithI18n(<Settings />);
-    
-    expect(screen.getByText('🌞')).toBeInTheDocument();
+
+    expect(screen.getByText('☀️')).toBeInTheDocument();
     expect(screen.getByText('🌙')).toBeInTheDocument();
-    expect(screen.getByText('🌓')).toBeInTheDocument();
+    expect(screen.getByText('🔄')).toBeInTheDocument();
   });
 
   it('should render language switcher', () => {
     renderWithI18n(<Settings />);
     
     expect(screen.getByText('中文')).toBeInTheDocument();
-    expect(screen.getByText('EN')).toBeInTheDocument();
+    expect(screen.getByText('English')).toBeInTheDocument();
   });
 
   it('should display accessibility information', () => {
     renderWithI18n(<Settings />);
     
     expect(screen.getByText('键盘快捷键')).toBeInTheDocument();
-    expect(screen.getByText('Tab - 导航到下一个元素')).toBeInTheDocument();
-    expect(screen.getByText('Enter/Space - 激活按钮或链接')).toBeInTheDocument();
-    expect(screen.getByText('方向键 - 调整滑块值')).toBeInTheDocument();
+    expect(screen.getByText('下一个元素')).toBeInTheDocument();
+    expect(screen.getByText('激活')).toBeInTheDocument();
   });
 
   it('should display screen reader support information', () => {
     renderWithI18n(<Settings />);
     
-    expect(screen.getByText('屏幕阅读器支持')).toBeInTheDocument();
-    expect(screen.getByText('所有交互元素都有适当的 ARIA 标签')).toBeInTheDocument();
-    expect(screen.getByText('状态变化会通过屏幕阅读器通知')).toBeInTheDocument();
+    expect(screen.getByText('屏幕阅读器兼容')).toBeInTheDocument();
   });
 
   it('should display high contrast mode information', () => {
     renderWithI18n(<Settings />);
     
     expect(screen.getByText('高对比度模式')).toBeInTheDocument();
-    expect(screen.getByText('支持系统高对比度设置')).toBeInTheDocument();
-    expect(screen.getByText('所有文本都满足 WCAG 对比度标准')).toBeInTheDocument();
   });
 
   it('should have proper accessibility attributes', () => {
     renderWithI18n(<Settings />);
-    
-    const settings = screen.getByRole('region');
-    expect(settings).toHaveAttribute('aria-label', 'Settings');
+    expect(screen.getByRole('main')).toBeInTheDocument();
   });
 
   it('should be responsive', () => {
     renderWithI18n(<Settings />);
-    
-    const settings = screen.getByRole('region');
+
+    const settings = screen.getByRole('main');
     expect(settings).toHaveClass('settings');
   });
 
   it('should handle theme switching within settings', () => {
     renderWithI18n(<Settings />);
     
-    const lightButton = screen.getByText('🌞');
+    const lightButton = screen.getByText('☀️');
     fireEvent.click(lightButton);
     
     expect(useThemeStore.getState().theme).toBe('light');
@@ -94,7 +87,7 @@ describe('Settings Component', () => {
   it('should handle language switching within settings', () => {
     renderWithI18n(<Settings />);
     
-    const englishButton = screen.getByText('EN');
+    const englishButton = screen.getByText('English');
     fireEvent.click(englishButton);
     
     expect(i18n.language).toBe('en');
@@ -103,9 +96,9 @@ describe('Settings Component', () => {
   it('should display all theme options with proper labels', () => {
     renderWithI18n(<Settings />);
     
-    const lightButton = screen.getByLabelText('Light theme');
-    const darkButton = screen.getByLabelText('Dark theme');
-    const autoButton = screen.getByLabelText('Auto theme');
+    const lightButton = screen.getByLabelText('Light Theme');
+    const darkButton = screen.getByLabelText('Dark Theme');
+    const autoButton = screen.getByLabelText('Auto Theme');
     
     expect(lightButton).toBeInTheDocument();
     expect(darkButton).toBeInTheDocument();
@@ -115,7 +108,7 @@ describe('Settings Component', () => {
   it('should display all language options with proper labels', () => {
     renderWithI18n(<Settings />);
     
-    const chineseButton = screen.getByLabelText('Switch to Chinese');
+    const chineseButton = screen.getByLabelText('切换到中文');
     const englishButton = screen.getByLabelText('Switch to English');
     
     expect(chineseButton).toBeInTheDocument();

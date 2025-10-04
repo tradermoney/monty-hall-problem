@@ -36,7 +36,7 @@
 }
 
 .intro-section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .intro-section h2 {
@@ -88,9 +88,10 @@
 
 .problem-description {
   background: #f0fdfa;
-  padding: 1.5rem;
-  border-radius: 8px;
+  padding: 2.5rem;
+  border-radius: 12px;
   border-left: 4px solid var(--primary-color, #059669);
+  margin: 2rem 0;
 }
 
 .problem-question {
@@ -105,26 +106,28 @@
 .answer-highlight {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
-  padding: 1.2rem 1.5rem;
-  border-radius: 8px;
+  padding: 2rem;
+  border-radius: 12px;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+  margin: 2rem 0;
 }
 
 .probability-analysis {
   background: #fefce8;
-  padding: 1.5rem;
-  border-radius: 8px;
+  padding: 2.5rem;
+  border-radius: 12px;
   border-left: 4px solid #eab308;
+  margin: 2rem 0;
 }
 
 .probability-analysis ul li {
   background: white;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 6px;
-  border-left: 3px solid #eab308;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #eab308;
 }
 
 .conclusion {
@@ -141,15 +144,15 @@
 .key-insights {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
 }
 
 .insight-card {
   background: linear-gradient(135deg, #f0fdfa 0%, #ecfdf5 100%);
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #a7f3d0;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid #a7f3d0;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -215,16 +218,16 @@
 .game-steps-visual {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
+  gap: 3rem;
+  margin: 3rem 0;
 }
 
 .step-visual {
   background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
+  padding: 2rem;
+  border-radius: 12px;
   border: 2px solid #d1fae5;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .step-visual h4 {
@@ -291,8 +294,8 @@
 .scenarios-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin: 1.5rem 0;
+  gap: 2.5rem;
+  margin: 2.5rem 0;
 }
 
 .scenario-card {
@@ -333,7 +336,7 @@
 
 .scenario-body {
   background: white;
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 .scenario-body p {
@@ -399,14 +402,14 @@
 .cta-features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
+  gap: 2.5rem;
+  margin: 3rem 0;
 }
 
 .cta-feature {
   background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
+  padding: 2rem;
+  border-radius: 12px;
   border: 2px solid #c4b5fd;
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -433,10 +436,10 @@
 /* Probability Comparison Chart */
 .probability-comparison {
   background: #f8fafc;
-  padding: 2rem;
+  padding: 3rem;
   border-radius: 12px;
   border: 2px solid #e2e8f0;
-  margin: 2rem 0;
+  margin: 3rem 0;
 }
 
 .probability-comparison h3 {
@@ -449,21 +452,21 @@
 .comparison-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .strategy-comparison {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  gap: 2rem;
+  gap: 3rem;
   align-items: center;
 }
 
 .strategy-card {
   background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -590,10 +593,10 @@
 /* Probability Pie Charts */
 .probability-pie-charts {
   background: white;
-  padding: 2rem;
+  padding: 3rem;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin: 2rem 0;
+  margin: 3rem 0;
   border: 2px solid #e5e7eb;
 }
 
@@ -607,8 +610,8 @@
 .pie-charts-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 1.5rem;
+  gap: 3rem;
+  margin-bottom: 2rem;
 }
 
 .pie-chart-wrapper {
