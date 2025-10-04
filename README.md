@@ -1,236 +1,240 @@
-# 蒙提霍尔问题模拟器
+# Monty Hall Problem Simulator
 
-一个交互式的蒙提霍尔问题模拟器，支持手动游戏模式、自动仿真、统计分析、数据导出等功能。
+[简体中文](./README.zh-CN.md) | **English**
 
-## 功能特性
+> 🎯 **Live Demo**: [https://tradermoney.github.io/monty-hall-problem/](https://tradermoney.github.io/monty-hall-problem/)
 
-### 🎮 手动游戏模式
-- 交互式三门问题游戏
-- 实时显示游戏结果
-- 支持切换策略
-- 游戏历史记录
+An interactive Monty Hall problem simulator supporting manual game mode, automatic simulation, statistical analysis, data export, and more features.
 
-### 🤖 自动仿真模式
-- 批量仿真运行
-- 可配置参数（门的数量、仿真次数、批次大小等）
-- 多种主持人模型（经典、无知、有偏、有时沉默）
-- 多种玩家策略（从不切换、总是切换、随机切换）
-- 进度条显示
-- 实时统计更新
+## 🌟 Features
 
-### 📊 统计分析
-- 胜率对比图表
-- 胜负分布饼图
-- 详细统计表格
-- 批次胜率趋势图
-- 置信区间计算
-- 标准误差分析
+### 🎮 Manual Game Mode
+- Interactive three-door problem game
+- Real-time game results display
+- Strategy switching support
+- Game history recording
 
-### ⚙️ 参数配置
-- 总运行次数设置
-- 门的数量配置
-- 批次大小调整
-- 主持人模型选择
-- 玩家策略选择
-- 随机种子设置
-- 预设配置快速应用
+### 🤖 Automatic Simulation Mode
+- Batch simulation runs
+- Configurable parameters (number of doors, simulation count, batch size, etc.)
+- Multiple host models (Classic, Ignorant, Biased, Sometimes Silent)
+- Multiple player strategies (Never Switch, Always Switch, Random Switch)
+- Progress bar display
+- Real-time statistics updates
 
-### 🌐 国际化支持
-- 中文界面
-- 英文界面
-- 实时语言切换
+### 📊 Statistical Analysis
+- Win rate comparison charts
+- Win/loss distribution pie charts
+- Detailed statistics tables
+- Batch win rate trend charts
+- Confidence interval calculations
+- Standard error analysis
 
-### 🎨 主题切换
-- 浅色主题
-- 深色主题
-- 自动主题（跟随系统）
-- 高对比度支持
+### ⚙️ Parameter Configuration
+- Total run count settings
+- Number of doors configuration
+- Batch size adjustment
+- Host model selection
+- Player strategy selection
+- Random seed settings
+- Quick preset configuration application
 
-### ♿ 无障碍支持
-- 键盘导航
-- 屏幕阅读器支持
-- ARIA 标签
-- 高对比度模式
-- 减少动画选项
+### 🌐 Internationalization Support
+- Chinese interface
+- English interface
+- Real-time language switching
 
-### 📁 数据管理
-- 导出统计数据（JSON）
-- 导出完整数据（JSON）
-- 导出统计数据（CSV）
-- 导入数据
-- 生成示例数据
+### 🎨 Theme Switching
+- Light theme
+- Dark theme
+- Auto theme (follows system)
+- High contrast support
 
-## 技术栈
+### ♿ Accessibility Support
+- Keyboard navigation
+- Screen reader support
+- ARIA labels
+- High contrast mode
+- Reduced motion options
 
-- **前端框架**: React 18
-- **状态管理**: Zustand
-- **路由**: React Router
-- **国际化**: react-i18next
-- **图表**: Recharts
-- **样式**: CSS 变量 + 模块化 CSS
-- **构建工具**: Vite
-- **测试**: Vitest + React Testing Library
-- **类型**: TypeScript
+### 📁 Data Management
+- Export statistical data (JSON)
+- Export complete data (JSON)
+- Export statistical data (CSV)
+- Import data
+- Generate sample data
 
-## 安装和运行
+## 🛠️ Tech Stack
 
-### 安装依赖
+- **Frontend Framework**: React 18
+- **State Management**: Zustand
+- **Routing**: React Router
+- **Internationalization**: react-i18next
+- **Charts**: Recharts
+- **Styling**: CSS variables + Modular CSS
+- **Build Tool**: Vite
+- **Testing**: Vitest + React Testing Library
+- **Types**: TypeScript
+
+## 🚀 Quick Start
+
+### Installation
 ```bash
 npm install
 ```
 
-### 开发模式
+### Development Mode
 ```bash
 npm run dev
 ```
 
-### 生产构建
+### Production Build
 ```bash
 npm run build
 ```
 
-### 运行测试
+### Run Tests
 ```bash
 npm test
 ```
 
-### 运行测试（监听模式）
+### Run Tests (Watch Mode)
 ```bash
 npm run test:watch
 ```
 
-### 代码检查
+### Code Linting
 ```bash
 npm run lint
 ```
 
-## 项目结构
+## 📁 Project Structure
 
 ```
 src/
-├── components/          # React 组件
-│   ├── AutoSimulation/  # 自动仿真组件
-│   ├── DataManager/     # 数据管理组件
-│   ├── LanguageSwitcher/# 语言切换器
-│   ├── ManualGame/     # 手动游戏组件
-│   ├── ParameterPanel/ # 参数配置面板
-│   ├── Settings/       # 设置页面
-│   ├── StatisticsCharts/ # 统计图表组件
-│   └── ThemeSwitcher/  # 主题切换器
-├── stores/             # 状态管理
-│   ├── gameStore.ts    # 游戏状态
-│   ├── simulationStore.ts # 仿真状态
-│   └── themeStore.ts   # 主题状态
-├── utils/              # 工具函数
-│   ├── accessibility.ts # 无障碍功能
-│   ├── dataExportImport.ts # 数据导出导入
-│   └── simulator.ts    # 蒙提霍尔仿真器
-├── i18n/               # 国际化
-│   └── index.ts        # i18n 配置
-├── types/              # TypeScript 类型定义
-└── __tests__/          # 测试文件
+├── components/          # React Components
+│   ├── AutoSimulation/  # Automatic Simulation Component
+│   ├── DataManager/     # Data Management Component
+│   ├── LanguageSwitcher/# Language Switcher
+│   ├── ManualGame/     # Manual Game Component
+│   ├── ParameterPanel/ # Parameter Configuration Panel
+│   ├── Settings/       # Settings Page
+│   ├── StatisticsCharts/ # Statistics Charts Component
+│   └── ThemeSwitcher/  # Theme Switcher
+├── stores/             # State Management
+│   ├── gameStore.ts    # Game State
+│   ├── simulationStore.ts # Simulation State
+│   └── themeStore.ts   # Theme State
+├── utils/              # Utility Functions
+│   ├── accessibility.ts # Accessibility Features
+│   ├── dataExportImport.ts # Data Export/Import
+│   └── simulator.ts    # Monty Hall Simulator
+├── i18n/               # Internationalization
+│   └── index.ts        # i18n Configuration
+├── types/              # TypeScript Type Definitions
+└── __tests__/          # Test Files
 
 ```
 
-## 使用说明
+## 📖 Usage Guide
 
-### 手动游戏模式
-1. 点击"开始游戏"按钮
-2. 选择一扇门
-3. 主持人会打开另一扇门
-4. 选择是否切换门
-5. 查看游戏结果
+### Manual Game Mode
+1. Click "Start Game" button
+2. Choose a door
+3. Host will open another door
+4. Choose whether to switch doors
+5. View game results
 
-### 自动仿真模式
-1. 设置仿真参数（门的数量、仿真次数等）
-2. 选择主持人模型和玩家策略
-3. 点击"开始仿真"按钮
-4. 查看实时进度和统计结果
+### Automatic Simulation Mode
+1. Set simulation parameters (number of doors, simulation count, etc.)
+2. Select host model and player strategy
+3. Click "Start Simulation" button
+4. View real-time progress and statistical results
 
-### 数据分析
-- 查看胜率对比图表
-- 分析胜负分布
-- 观察批次胜率趋势
-- 查看详细统计表格
+### Data Analysis
+- View win rate comparison charts
+- Analyze win/loss distribution
+- Observe batch win rate trends
+- View detailed statistics tables
 
-### 数据导出
-- 导出统计数据用于进一步分析
-- 导出完整数据包含所有仿真记录
-- 导出CSV格式便于Excel分析
-- 导入之前导出的数据
+### Data Export
+- Export statistical data for further analysis
+- Export complete data including all simulation records
+- Export CSV format for Excel analysis
+- Import previously exported data
 
-## 主持人模型说明
+## 🎭 Host Models Explanation
 
-### 经典模型（Classic）
-- 主持人知道哪扇门后有奖品
-- 主持人一定会打开一扇有山羊的门
-- 主持人不会打开玩家选择的门
+### Classic Model
+- Host knows which door has the prize
+- Host always opens a door with a goat
+- Host never opens the player's chosen door
 
-### 无知模型（Ignorant）
-- 主持人不知道哪扇门后有奖品
-- 主持人随机选择一扇门打开
-- 可能意外打开有奖品的门
+### Ignorant Model
+- Host doesn't know which door has the prize
+- Host randomly selects a door to open
+- May accidentally open the prize door
 
-### 有偏模型（Biased）
-- 主持人知道奖品位置
-- 主持人有偏好地选择要打开的门
-- 偏好程度由bias参数控制
+### Biased Model
+- Host knows the prize location
+- Host preferentially selects which door to open
+- Preference level controlled by bias parameter
 
-### 有时沉默模型（Sometimes Silent）
-- 主持人有时会选择不打开任何门
-- 沉默概率由silentProbability参数控制
-- 增加游戏的复杂性
+### Sometimes Silent Model
+- Host sometimes chooses not to open any door
+- Silence probability controlled by silentProbability parameter
+- Increases game complexity
 
-## 玩家策略说明
+## 🎯 Player Strategies Explanation
 
-### 从不切换（Never Switch）
-- 玩家始终坚守最初的选择
-- 胜率 = 1/门的数量
+### Never Switch
+- Player always sticks with initial choice
+- Win rate = 1/number of doors
 
-### 总是切换（Always Switch）
-- 玩家总是切换到剩下的未打开的门
-- 经典三门问题中胜率为2/3
+### Always Switch
+- Player always switches to remaining unopened door
+- Classic three-door problem win rate is 2/3
 
-### 随机切换（Random Switch）
-- 玩家随机决定是否切换
-- 胜率介于从不切换和总是切换之间
+### Random Switch
+- Player randomly decides whether to switch
+- Win rate between never switch and always switch
 
-## 数学原理
+## 🔢 Mathematical Principles
 
-蒙提霍尔问题是一个经典的概率问题。在经典的三门问题中：
+The Monty Hall problem is a classic probability problem. In the classic three-door problem:
 
-- 初始选择正确的概率：1/3
-- 初始选择错误的概率：2/3
-- 如果初始选择正确，切换会输
-- 如果初始选择错误，切换会赢
+- Probability of initial correct choice: 1/3
+- Probability of initial incorrect choice: 2/3
+- If initial choice is correct, switching loses
+- If initial choice is incorrect, switching wins
 
-因此，总是切换策略的胜率为2/3，而从不切换策略的胜率为1/3。
+Therefore, the always switch strategy has a win rate of 2/3, while the never switch strategy has a win rate of 1/3.
 
-## 贡献指南
+## 🤝 Contributing Guidelines
 
-欢迎提交 Issue 和 Pull Request！
+Welcome to submit Issues and Pull Requests!
 
-### 开发规范
-- 使用 TypeScript 进行开发
-- 遵循现有的代码风格
-- 为新功能编写测试用例
-- 更新相关文档
+### Development Standards
+- Use TypeScript for development
+- Follow existing code style
+- Write test cases for new features
+- Update related documentation
 
-### 提交规范
-- 使用清晰的提交信息
-- 关联相关的 Issue
-- 确保所有测试通过
+### Submission Standards
+- Use clear commit messages
+- Link related Issues
+- Ensure all tests pass
 
-## 许可证
+## 📄 License
 
 MIT License
 
-## 联系方式
+## 📧 Contact
 
-如有问题或建议，请通过以下方式联系：
-- 提交 GitHub Issue
-- 发送邮件至项目维护者
+For questions or suggestions, please contact:
+- Submit GitHub Issue
+- Email project maintainer
 
 ---
 
-**享受蒙提霍尔问题的探索之旅！** 🎲✨
+**Enjoy exploring the Monty Hall problem!** 🎲✨

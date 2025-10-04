@@ -7,6 +7,8 @@ import { StatisticsCharts } from './components/StatisticsCharts/StatisticsCharts
 import { DataManager } from './components/DataManager/DataManager';
 import { Settings } from './components/Settings/Settings';
 import { Introduction } from './components/Introduction/Introduction';
+import { ReadmeViewer } from './components/ReadmeViewer/ReadmeViewer';
+import { GitHubBadge } from './components/GitHubBadge/GitHubBadge';
 import { useSimulationStore } from './stores/simulationStore';
 import type { SimulationConfig } from './types';
 import './App.css';
@@ -37,10 +39,13 @@ function App() {
   };
 
   const isIntroduction = location.pathname === '/introduction';
+  const isReadme = location.pathname === '/readme';
   const isDemoPage = location.pathname.startsWith('/demo');
 
   return (
     <div className="app">
+      <GitHubBadge repoUrl="https://github.com/tradermoney/monty-hall-problem" />
+
       <header className="app-header">
         <h1 className="app-title">蒙提霍尔问题模拟器</h1>
 
@@ -51,6 +56,12 @@ function App() {
               onClick={() => navigate('/introduction')}
             >
               三门问题介绍
+            </button>
+            <button
+              className={`nav-button main-nav-button ${isReadme ? 'active' : ''}`}
+              onClick={() => navigate('/readme')}
+            >
+              项目文档
             </button>
             <button
               className={`nav-button main-nav-button ${isDemoPage ? 'active' : ''}`}
@@ -89,6 +100,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/demo/auto" replace />} />
           <Route path="/introduction" element={<Introduction />} />
+          <Route path="/readme" element={<ReadmeViewer />} />
           <Route path="/demo" element={<Navigate to="/demo/auto" replace />} />
           <Route path="/demo/auto" element={
             <div className="app-layout">

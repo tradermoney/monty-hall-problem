@@ -1,0 +1,78 @@
+.github-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #24292e 0%, #1a1e22 100%);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.github-badge:hover {
+  background: linear-gradient(135deg, #2ea44f 0%, #22863a 100%);
+  border-color: #2ea44f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(46, 164, 79, 0.3);
+}
+
+.github-badge:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(46, 164, 79, 0.2);
+}
+
+.github-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.github-badge:hover .github-icon {
+  transform: scale(1.1);
+}
+
+.github-text {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .github-badge {
+    top: 15px;
+    right: 15px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .github-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .github-text {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .github-badge {
+    top: 10px;
+    right: 10px;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .github-icon {
+    width: 14px;
+    height: 14px;
+  }
+}

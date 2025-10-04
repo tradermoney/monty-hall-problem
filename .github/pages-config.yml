@@ -1,0 +1,12 @@
+# GitHub Pages 配置
+name: monty-hall-problem
+theme: null # 使用自定义部署，不使用GitHub主题
+
+# 禁用Jekyll处理
+jekyll: false
+
+# 设置自定义域名（可选）
+# cname: your-custom-domain.com
+
+# 404页面处理
+static_site_generator: false

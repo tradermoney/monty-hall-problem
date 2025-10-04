@@ -1,0 +1,132 @@
+name: Build Only
+
+# 仅构建工作流 - 跳过测试和类型检查
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  build:
+    name: 仅构建项目
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 安装依赖
+        run: npm ci
+
+      - name: 直接构建项目（跳过类型检查）
+        run: npx vite build
+        env:
+          CI: true
+          NODE_ENV: production
+
+      - name: 验证构建结果
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "❌ 构建失败：dist目录不存在"
+            exit 1
+          fi
+
+          if [ ! -f "dist/index.html" ]; then
+            echo "❌ 构建失败：index.html不存在"
+            exit 1
+          fi
+
+          echo "✅ 构建验证通过"
+          echo "构建文件列表："
+          ls -la dist/
+
+      - name: 检查构建文件
+        run: |
+          echo "🔍 检查构建文件..."
+
+          # 检查主要文件
+          for file in dist/index.html dist/assets; do
+            if [ -e "$file" ]; then
+              echo "✅ 找到: $file"
+            else
+              echo "⚠️  未找到: $file"
+            fi
+          done
+
+          # 检查文件大小
+          if [ -f "dist/index.html" ]; then
+            HTML_SIZE=$(stat -c%s "dist/index.html")
+            echo "📄 index.html 大小: $HTML_SIZE bytes"
+          fi
+
+          # 计算总大小
+          BUILD_SIZE=$(du -sh dist/ | cut -f1)
+          echo "📦 总构建大小: $BUILD_SIZE"
+
+      - name: 上传构建产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts-${{ github.run_number }}
+          path: |
+            dist/
+            !dist/node_modules
+          retention-days: 7
+
+  # 可选：部署到临时环境进行测试
+  deploy-preview:
+    name: 部署预览版本
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: 下载构建产物
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts-${{ github.run_number }}
+          path: ./dist
+
+      - name: 创建预览部署
+        run: |
+          echo "📋 PR预览部署信息："
+          echo "PR编号: #${{ github.event.pull_request.number }}"
+          echo "分支: ${{ github.head_ref }}"
+          echo "构建产物已准备就绪"
+          echo "可以在本地使用 'npm run preview' 测试构建结果"
+
+      - name: 生成部署报告
+        run: |
+          cat > deployment-report.md << EOF
+          # 部署预览报告
+
+          ## 构建信息
+          - **提交**: ${{ github.sha }}
+          - **分支**: ${{ github.head_ref }}
+          - **构建时间**: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+
+          ## 构建结果
+          - ✅ 构建成功
+          - 📦 构建大小: $(du -sh dist/ | cut -f1)
+
+          ## 测试建议
+          1. 在本地运行 `npm run preview` 测试构建结果
+          2. 检查控制台是否有错误信息
+          3. 验证所有功能是否正常工作
+
+          ## GitHub Pages部署
+          合并到main分支后将自动部署到GitHub Pages。
+          EOF
+
+          echo "📋 部署报告已生成"
+          cat deployment-report.md

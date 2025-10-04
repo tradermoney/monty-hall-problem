@@ -8,11 +8,13 @@ const ManualGame: React.FC = () => {
 
   const renderDoors = () => {
     const doors = Array.from({ length: gameState.doors }, (_, i) => i);
-    
+
     return (
       <div className="doors-container">
         {doors.map(doorNumber => {
-          const isSelected = gameState.selectedDoor === doorNumber;
+          // 如果已经做出换门决定，显示最终选择的门；否则显示初始选择的门
+          const currentSelectedDoor = gameState.finalDoor !== undefined ? gameState.finalDoor : gameState.selectedDoor;
+          const isSelected = currentSelectedDoor === doorNumber;
           const isOpened = gameState.openedDoor === doorNumber;
           const isRevealed = gameState.step === 'revealed' || gameState.step === 'done';
           const hasPrize = gameState.prizeDoor === doorNumber;
@@ -62,9 +64,16 @@ const ManualGame: React.FC = () => {
       case 'decide':
         return '主持人打开了一扇门！你要换门吗？';
       case 'revealed':
-        return gameState.result === 'win' ? '🎉 恭喜你赢了！' : '😔 很遗憾，你输了！';
-      case 'done':
-        return '游戏结束，点击"重新开始"再来一局';
+      case 'done': {
+        if (gameState.result === 'win') {
+          const strategy = gameState.switched ? '换门' : '不换门';
+          return `🎉 恭喜你赢了！你${strategy}的选择是正确的！奖品就在门 ${gameState.prizeDoor! + 1} 后面。`;
+        } else {
+          const strategy = gameState.switched ? '换门' : '不换门';
+          const correctChoice = gameState.switched ? '不换门' : '换门';
+          return `😔 很遗憾，你输了！这次${strategy}不是最佳选择，奖品在门 ${gameState.prizeDoor! + 1} 后面。如果你${correctChoice}就赢了。`;
+        }
+      }
       default:
         return '';
     }

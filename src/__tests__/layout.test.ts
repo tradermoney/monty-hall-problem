@@ -82,8 +82,8 @@ test.describe('Page Layout Tests', () => {
   test('color scheme should be light blue', async ({ page }) => {
     // 获取计算后的样式值
     const colors = await page.evaluate(() => {
-      const root = document.documentElement;
-      const style = getComputedStyle(root);
+      // const root = document.documentElement; // 未使用，注释掉
+      // const style = getComputedStyle(root); // 未使用，注释掉
       const testDiv = document.createElement('div');
       document.body.appendChild(testDiv);
       
@@ -113,7 +113,7 @@ test.describe('Page Layout Tests', () => {
     };
     
     // 检查所有颜色是否符合淡蓝色系要求
-    for (const [name, color] of Object.entries(colors)) {
+    for (const [, color] of Object.entries(colors)) { // 移除未使用的name变量
       const rgb = parseColor(color);
       if (rgb) {
         // 确保颜色偏向淡蓝色（蓝色值要大于红色和绿色）

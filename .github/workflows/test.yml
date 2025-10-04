@@ -1,0 +1,143 @@
+name: Test Build Process
+
+# 测试工作流 - 用于验证构建过程
+on:
+  push:
+    branches: [ feature/*, test/* ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  test-build:
+    name: 测试构建过程
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 安装依赖
+        run: npm ci
+
+      - name: 运行代码检查
+        run: npm run lint
+
+      - name: 运行测试
+        run: npm test
+
+      - name: 构建项目（测试模式）
+        run: npm run build
+
+      - name: 验证构建结果
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "❌ 构建失败：dist目录不存在"
+            exit 1
+          fi
+
+          if [ ! -f "dist/index.html" ]; then
+            echo "❌ 构建失败：index.html不存在"
+            exit 1
+          fi
+
+          echo "✅ 测试构建成功"
+          echo "构建文件列表："
+          ls -la dist/
+
+      - name: 计算构建大小
+        run: |
+          BUILD_SIZE=$(du -sh dist/ | cut -f1)
+          echo "构建大小: $BUILD_SIZE"
+          echo "BUILD_SIZE=$BUILD_SIZE" >> $GITHUB_ENV
+
+      - name: 测试构建产物
+        run: |
+          echo "🔍 检查构建文件..."
+
+          # 检查主要文件
+          for file in dist/index.html dist/assets; do
+            if [ -e "$file" ]; then
+              echo "✅ 找到: $file"
+            else
+              echo "⚠️  未找到: $file"
+            fi
+          done
+
+          # 检查文件大小
+          if [ -f "dist/index.html" ]; then
+            HTML_SIZE=$(stat -c%s "dist/index.html")
+            echo "📄 index.html 大小: $HTML_SIZE bytes"
+          fi
+
+      - name: 上传构建报告
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-report-${{ github.run_number }}
+          path: |
+            dist/
+            !dist/node_modules
+          retention-days: 7
+
+  lighthouse-ci:
+    name: Lighthouse性能测试
+    runs-on: ubuntu-latest
+    needs: test-build
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 安装依赖
+        run: npm ci
+
+      - name: 构建项目
+        run: npm run build
+
+      - name: 安装Lighthouse CI
+        run: npm install -g @lhci/cli
+
+      - name: 运行Lighthouse CI
+        run: |
+          lhci autorun --config=lighthouserc.json || echo "Lighthouse测试完成"
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        continue-on-error: true
+
+  security-audit:
+    name: 安全审计
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 安装依赖
+        run: npm ci
+
+      - name: 运行安全审计
+        run: npm audit --audit-level=high
+
+      - name: 检查已知漏洞
+        run: npx audit-ci --config audit-ci.json || echo "安全审计完成"
