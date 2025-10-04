@@ -18,10 +18,6 @@ export interface SimulationConfig {
   batchSize: number;
   randomSeed?: number;
   silentProbability?: number;
-  doors?: number;
-  strategy?: 'alwaysSwitch' | 'neverSwitch' | 'randomSwitch';
-  runs?: number;
-  seed?: string;
 }
 
 // 手动游戏状态

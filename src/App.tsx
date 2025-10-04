@@ -122,14 +122,26 @@ function App() {
                   <h2>数据管理</h2>
                   <DataManager
                     config={config}
-                    stats={{
-                      totalRuns: allRecords.length,
-                      wins: allRecords.filter(r => r.win).length,
-                      losses: allRecords.filter(r => !r.win).length,
-                      winRate: allRecords.length > 0 ? (allRecords.filter(r => r.win).length / allRecords.length) * 100 : 0,
-                      standardError: 0,
-                      confidenceInterval: { lower: 0, upper: 0 }
-                    }}
+                    stats={(() => {
+                      const totalRuns = allRecords.length;
+                      const wins = allRecords.filter(r => r.win).length;
+                      const losses = totalRuns - wins;
+                      const winRate = totalRuns > 0 ? wins / totalRuns : 0;
+                      const standardError = totalRuns > 0 ? Math.sqrt((winRate * (1 - winRate)) / totalRuns) : 0;
+                      const marginOfError = 1.96 * standardError;
+
+                      return {
+                        totalRuns,
+                        wins,
+                        losses,
+                        winRate: winRate * 100,
+                        standardError: standardError * 100,
+                        confidenceInterval: {
+                          lower: Math.max(0, (winRate - marginOfError) * 100),
+                          upper: Math.min(100, (winRate + marginOfError) * 100)
+                        }
+                      };
+                    })()}
                     rawData={allRecords}
                     onImport={() => {}}
                   />
@@ -162,14 +174,130 @@ function App() {
                   <h2>数据管理</h2>
                   <DataManager
                     config={config}
-                    stats={{
-                      totalRuns: allRecords.length,
-                      wins: allRecords.filter(r => r.win).length,
-                      losses: allRecords.filter(r => !r.win).length,
-                      winRate: allRecords.length > 0 ? (allRecords.filter(r => r.win).length / allRecords.length) * 100 : 0,
-                      standardError: 0,
-                      confidenceInterval: { lower: 0, upper: 0 }
-                    }}
+                    stats={(() => {
+                      const totalRuns = allRecords.length;
+                      const wins = allRecords.filter(r => r.win).length;
+                      const losses = totalRuns - wins;
+                      const winRate = totalRuns > 0 ? wins / totalRuns : 0;
+                      const standardError = totalRuns > 0 ? Math.sqrt((winRate * (1 - winRate)) / totalRuns) : 0;
+                      const marginOfError = 1.96 * standardError;
+
+                      return {
+                        totalRuns,
+                        wins,
+                        losses,
+                        winRate: winRate * 100,
+                        standardError: standardError * 100,
+                        confidenceInterval: {
+                          lower: Math.max(0, (winRate - marginOfError) * 100),
+                          upper: Math.min(100, (winRate + marginOfError) * 100)
+                        }
+                      };
+                    })()}
+                    rawData={allRecords}
+                    onImport={() => {}}
+                  />
+                </section>
+              </aside>
+            </div>
+          } />
+          <Route path="/demo/manual" element={
+            <div className="app-layout">
+              <aside className="sidebar">
+                <section className="parameter-section">
+                  <ParameterPanel
+                    config={config}
+                    onConfigChange={handleConfigChange}
+                    disabled={false}
+                  />
+                </section>
+              </aside>
+
+              <div className="main-content">
+                <div className="tab-content">
+                  <section className="manual-game-section">
+                    <ManualGame />
+                  </section>
+                </div>
+              </div>
+
+              <aside className="data-sidebar">
+                <section className="data-section">
+                  <h2>数据管理</h2>
+                  <DataManager
+                    config={config}
+                    stats={(() => {
+                      const totalRuns = allRecords.length;
+                      const wins = allRecords.filter(r => r.win).length;
+                      const losses = totalRuns - wins;
+                      const winRate = totalRuns > 0 ? wins / totalRuns : 0;
+                      const standardError = totalRuns > 0 ? Math.sqrt((winRate * (1 - winRate)) / totalRuns) : 0;
+                      const marginOfError = 1.96 * standardError;
+
+                      return {
+                        totalRuns,
+                        wins,
+                        losses,
+                        winRate: winRate * 100,
+                        standardError: standardError * 100,
+                        confidenceInterval: {
+                          lower: Math.max(0, (winRate - marginOfError) * 100),
+                          upper: Math.min(100, (winRate + marginOfError) * 100)
+                        }
+                      };
+                    })()}
+                    rawData={allRecords}
+                    onImport={() => {}}
+                  />
+                </section>
+              </aside>
+            </div>
+          } />
+          <Route path="/demo/manual" element={
+            <div className="app-layout">
+              <aside className="sidebar">
+                <section className="parameter-section">
+                  <ParameterPanel
+                    config={config}
+                    onConfigChange={handleConfigChange}
+                    disabled={false}
+                  />
+                </section>
+              </aside>
+
+              <div className="main-content">
+                <div className="tab-content">
+                  <section className="manual-game-section">
+                    <ManualGame />
+                  </section>
+                </div>
+              </div>
+
+              <aside className="data-sidebar">
+                <section className="data-section">
+                  <h2>数据管理</h2>
+                  <DataManager
+                    config={config}
+                    stats={(() => {
+                      const totalRuns = allRecords.length;
+                      const wins = allRecords.filter(r => r.win).length;
+                      const losses = totalRuns - wins;
+                      const winRate = totalRuns > 0 ? wins / totalRuns : 0;
+                      const standardError = totalRuns > 0 ? Math.sqrt((winRate * (1 - winRate)) / totalRuns) : 0;
+                      const marginOfError = 1.96 * standardError;
+
+                      return {
+                        totalRuns,
+                        wins,
+                        losses,
+                        winRate: winRate * 100,
+                        standardError: standardError * 100,
+                        confidenceInterval: {
+                          lower: Math.max(0, (winRate - marginOfError) * 100),
+                          upper: Math.min(100, (winRate + marginOfError) * 100)
+                        }
+                      };
+                    })()}
                     rawData={allRecords}
                     onImport={() => {}}
                   />
@@ -202,14 +330,78 @@ function App() {
                   <h2>数据管理</h2>
                   <DataManager
                     config={config}
-                    stats={{
-                      totalRuns: allRecords.length,
-                      wins: allRecords.filter(r => r.win).length,
-                      losses: allRecords.filter(r => !r.win).length,
-                      winRate: allRecords.length > 0 ? (allRecords.filter(r => r.win).length / allRecords.length) * 100 : 0,
-                      standardError: 0,
-                      confidenceInterval: { lower: 0, upper: 0 }
-                    }}
+                    stats={(() => {
+                      const totalRuns = allRecords.length;
+                      const wins = allRecords.filter(r => r.win).length;
+                      const losses = totalRuns - wins;
+                      const winRate = totalRuns > 0 ? wins / totalRuns : 0;
+                      const standardError = totalRuns > 0 ? Math.sqrt((winRate * (1 - winRate)) / totalRuns) : 0;
+                      const marginOfError = 1.96 * standardError;
+
+                      return {
+                        totalRuns,
+                        wins,
+                        losses,
+                        winRate: winRate * 100,
+                        standardError: standardError * 100,
+                        confidenceInterval: {
+                          lower: Math.max(0, (winRate - marginOfError) * 100),
+                          upper: Math.min(100, (winRate + marginOfError) * 100)
+                        }
+                      };
+                    })()}
+                    rawData={allRecords}
+                    onImport={() => {}}
+                  />
+                </section>
+              </aside>
+            </div>
+          } />
+          <Route path="/demo/manual" element={
+            <div className="app-layout">
+              <aside className="sidebar">
+                <section className="parameter-section">
+                  <ParameterPanel
+                    config={config}
+                    onConfigChange={handleConfigChange}
+                    disabled={false}
+                  />
+                </section>
+              </aside>
+
+              <div className="main-content">
+                <div className="tab-content">
+                  <section className="manual-game-section">
+                    <ManualGame />
+                  </section>
+                </div>
+              </div>
+
+              <aside className="data-sidebar">
+                <section className="data-section">
+                  <h2>数据管理</h2>
+                  <DataManager
+                    config={config}
+                    stats={(() => {
+                      const totalRuns = allRecords.length;
+                      const wins = allRecords.filter(r => r.win).length;
+                      const losses = totalRuns - wins;
+                      const winRate = totalRuns > 0 ? wins / totalRuns : 0;
+                      const standardError = totalRuns > 0 ? Math.sqrt((winRate * (1 - winRate)) / totalRuns) : 0;
+                      const marginOfError = 1.96 * standardError;
+
+                      return {
+                        totalRuns,
+                        wins,
+                        losses,
+                        winRate: winRate * 100,
+                        standardError: standardError * 100,
+                        confidenceInterval: {
+                          lower: Math.max(0, (winRate - marginOfError) * 100),
+                          upper: Math.min(100, (winRate + marginOfError) * 100)
+                        }
+                      };
+                    })()}
                     rawData={allRecords}
                     onImport={() => {}}
                   />

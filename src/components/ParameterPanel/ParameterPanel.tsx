@@ -39,7 +39,7 @@ export const ParameterPanel: React.FC<ParameterPanelProps> = ({
     const defaultConfig: SimulationConfig = {
       totalRuns: 10000,
       numberOfDoors: 3,
-      batchSize: 100,
+      batchSize: 1000,
       hostModel: 'classic',
       playerStrategy: 'alwaysSwitch',
       randomSeed: Math.floor(Math.random() * 1000000),

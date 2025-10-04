@@ -37,7 +37,7 @@ export class MontyHallSimulator {
   runSingleExperiment(config: SimulationConfig): SingleRunRecord {
     this.runId++;
     
-    const doors = config.doors || 3; // 提供默认值
+    const doors = config.numberOfDoors || 3; // 提供默认值
     const prizeDoor = this.randomInt(doors);
     const firstPick = this.randomInt(doors);
     
@@ -122,7 +122,7 @@ export class MontyHallSimulator {
 
     return {
       id: this.runId,
-      seed: config.seed,
+      seed: config.randomSeed?.toString(),
       doors: doors,
       hostModel: config.hostModel,
       strategy: config.playerStrategy,
