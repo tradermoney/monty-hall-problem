@@ -1,0 +1,104 @@
+/* 按钮样式 */
+.apply-button {
+  background: var(--success-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.apply-button:hover {
+  background: var(--success-hover);
+  transform: translateY(-1px);
+}
+
+.apply-button:disabled {
+  background: var(--disabled-bg);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.reset-button {
+  background: var(--secondary-color);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-button:hover {
+  background: var(--secondary-hover);
+  transform: translateY(-1px);
+}
+
+.reset-button:disabled {
+  background: var(--disabled-bg);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.parameter-actions {
+  margin-top: 10px;
+}
+
+.generate-seed-button {
+  background: var(--info-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.generate-seed-button:hover {
+  background: var(--info-hover);
+  transform: translateY(-1px);
+}
+
+.generate-seed-button:disabled {
+  background: var(--disabled-bg);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.preset-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.preset-button {
+  background: var(--preset-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  min-width: 120px;
+}
+
+.preset-button:hover {
+  background: var(--preset-hover);
+  transform: translateY(-1px);
+}
+
+.preset-button:disabled {
+  background: var(--disabled-bg);
+  cursor: not-allowed;
+  transform: none;
+}

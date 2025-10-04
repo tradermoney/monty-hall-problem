@@ -36,13 +36,13 @@
 
 .language-button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.3);
 }
 
 /* 主题变量 */
 :root {
-  --primary-color: #3b82f6;
-  --primary-hover: #2563eb;
+  --primary-color: #059669;
+  --primary-hover: #047857;
   --text-primary: #1f2937;
   --text-secondary: #6b7280;
   --border-color: #d1d5db;

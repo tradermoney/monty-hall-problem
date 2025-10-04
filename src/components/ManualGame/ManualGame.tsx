@@ -1,5 +1,6 @@
 import React from 'react';
 import { useManualGameStore } from '../../stores/manualGameStore';
+import { FieldTooltip } from '../Tooltip/Tooltip';
 import './ManualGame.css';
 
 const ManualGame: React.FC = () => {
@@ -71,8 +72,11 @@ const ManualGame: React.FC = () => {
 
   return (
     <div className="manual-game">
-      <h2>手动游戏模式</h2>
-      
+      <h2>
+        手动游戏模式
+        <FieldTooltip content="亲身体验蒙提霍尔问题。选择一扇门，主持人会打开一扇有山羊的门，然后你需要决定是否换门。通过多次游戏，你可以直观地感受到换门策略的优势。" />
+      </h2>
+
       <div className="game-message">
         {getGameMessage()}
       </div>

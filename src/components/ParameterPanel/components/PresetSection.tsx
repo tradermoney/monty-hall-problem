@@ -1,5 +1,6 @@
 import React from 'react';
 import type { SimulationConfig } from '../../../types';
+import { FieldTooltip } from '../../Tooltip/Tooltip';
 
 interface PresetSectionProps {
   config: SimulationConfig;
@@ -21,9 +22,12 @@ export const PresetSection: React.FC<PresetSectionProps> = ({
 
   return (
     <div className="parameter-section">
-      <h3>预设配置</h3>
+      <h3>
+        预设配置
+        <FieldTooltip content="快速应用常用的参数组合。快速测试用于快速验证（1000次）；标准仿真用于常规分析（10000次）；高级仿真用于深入研究，包含更多门和复杂主持人模型（100000次）。" />
+      </h3>
       <div className="preset-buttons">
-        <button 
+        <button
           className="preset-button"
           onClick={() => {
             const preset: SimulationConfig = {
@@ -39,7 +43,7 @@ export const PresetSection: React.FC<PresetSectionProps> = ({
         >
           快速测试
         </button>
-        <button 
+        <button
           className="preset-button"
           onClick={() => {
             const preset: SimulationConfig = {
@@ -55,7 +59,7 @@ export const PresetSection: React.FC<PresetSectionProps> = ({
         >
           标准仿真
         </button>
-        <button 
+        <button
           className="preset-button"
           onClick={() => {
             const preset: SimulationConfig = {

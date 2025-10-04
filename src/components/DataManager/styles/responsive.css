@@ -1,0 +1,17 @@
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .data-manager-actions {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .button-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .data-button {
+    flex: 1;
+    min-width: 120px;
+  }
+}

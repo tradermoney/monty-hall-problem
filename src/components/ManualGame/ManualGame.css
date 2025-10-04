@@ -51,7 +51,7 @@
 
 .door.selected {
   border-color: var(--primary-color);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 20px rgba(5, 150, 105, 0.5);
 }
 
 .door.opened {
@@ -155,15 +155,15 @@
 
 /* 主题变量 */
 :root {
-  --primary-color: #3b82f6;
-  --primary-hover: #2563eb;
+  --primary-color: #059669;
+  --primary-hover: #047857;
   --secondary-color: #f3f4f6;
   --secondary-hover: #e5e7eb;
   --text-primary: #1f2937;
   --text-secondary: #6b7280;
   --border-color: #d1d5db;
-  --door-bg-start: #3b82f6;
-  --door-bg-end: #2563eb;
+  --door-bg-start: #059669;
+  --door-bg-end: #047857;
   --opened-door-bg: #f9fafb;
   --revealed-door-bg: #fef3c7;
   --info-bg: #f0f9ff;

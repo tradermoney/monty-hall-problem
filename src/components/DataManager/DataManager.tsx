@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DataExportImport, type ExportData } from '../../utils/dataExportImport';
 import type { SimulationConfig, SimulationStats, SingleRunRecord } from '../../types';
+import { FieldTooltip } from '../Tooltip/Tooltip';
 import './DataManager.css';
 
 interface DataManagerProps {
@@ -82,23 +83,26 @@ export const DataManager: React.FC<DataManagerProps> = ({
 
       <div className="data-manager-actions">
         <div className="action-group">
-          <h4>{t('dataManager.export')}</h4>
+          <h4>
+            {t('dataManager.export')}
+            <FieldTooltip content="导出仿真数据到本地文件。可以导出统计摘要、完整数据或CSV格式，用于后续分析或保存记录。" />
+          </h4>
           <div className="button-group">
-            <button 
+            <button
               className="data-button primary"
               onClick={handleExportStats}
               title={t('dataManager.exportStatsTooltip')}
             >
               {t('dataManager.exportStats')}
             </button>
-            <button 
+            <button
               className="data-button primary"
               onClick={handleExportComplete}
               title={t('dataManager.exportCompleteTooltip')}
             >
               {t('dataManager.exportComplete')}
             </button>
-            <button 
+            <button
               className="data-button secondary"
               onClick={handleExportCSV}
               title={t('dataManager.exportCSVTooltip')}
@@ -109,16 +113,19 @@ export const DataManager: React.FC<DataManagerProps> = ({
         </div>
 
         <div className="action-group">
-          <h4>{t('dataManager.import')}</h4>
+          <h4>
+            {t('dataManager.import')}
+            <FieldTooltip content="从本地文件导入之前保存的仿真数据，或生成示例数据来了解数据格式。支持JSON格式的数据文件。" />
+          </h4>
           <div className="button-group">
-            <button 
+            <button
               className="data-button primary"
               onClick={handleImportClick}
               title={t('dataManager.importTooltip')}
             >
               {t('dataManager.import')}
             </button>
-            <button 
+            <button
               className="data-button secondary"
               onClick={handleGenerateSample}
               title={t('dataManager.generateSampleTooltip')}
