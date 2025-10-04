@@ -8,11 +8,13 @@
   position: absolute;
   background: rgba(0, 0, 0, 0.9);
   color: white;
-  padding: 6px 10px;
+  padding: 8px 12px;
   border-radius: 4px;
   font-size: 12px;
   line-height: 1.4;
-  max-width: 240px;
+  min-width: 500px;
+  max-width: 500px;
+  width: max-content;
   word-wrap: break-word;
   z-index: 10000;
   pointer-events: none;
@@ -123,15 +125,17 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .tooltip {
-    max-width: 250px;
+    min-width: 400px;
+    max-width: 400px;
     font-size: 12px;
-    padding: 6px 10px;
+    padding: 8px 12px;
   }
 }
 
 @media (max-width: 480px) {
   .tooltip {
-    max-width: 200px;
+    min-width: 300px;
+    max-width: 300px;
     font-size: 11px;
   }
 }
