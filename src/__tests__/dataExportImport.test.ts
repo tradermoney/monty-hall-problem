@@ -1,6 +1,6 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { DataExportImport } from '../utils/dataExportImport';
-import { SimulationConfig, SimulationStats } from '../types';
+import type { SimulationConfig, SimulationStats } from '../types';
 
 describe('DataExportImport', () => {
   const mockConfig: SimulationConfig = {
@@ -10,36 +10,17 @@ describe('DataExportImport', () => {
     hostModel: 'classic',
     playerStrategy: 'alwaysSwitch',
     randomSeed: 12345,
-    hostBias: 0.7,
+    hostBias: { weights: {}, openProbability: 0.7 },
     silentProbability: 0.2
   };
 
   const mockStats: SimulationStats = {
     totalRuns: 1000,
-    totalWins: 667,
-    totalLosses: 333,
+    wins: 667,
+    losses: 333,
     winRate: 66.7,
-    neverSwitch: {
-      wins: 333,
-      losses: 667,
-      winRate: 33.3,
-      standardError: 0.47,
-      confidenceInterval: { lower: 32.4, upper: 34.2 }
-    },
-    alwaysSwitch: {
-      wins: 667,
-      losses: 333,
-      winRate: 66.7,
-      standardError: 0.47,
-      confidenceInterval: { lower: 65.8, upper: 67.6 }
-    },
-    randomSwitch: {
-      wins: 500,
-      losses: 500,
-      winRate: 50.0,
-      standardError: 0.50,
-      confidenceInterval: { lower: 49.0, upper: 51.0 }
-    }
+    standardError: 0.47,
+    confidenceInterval: { lower: 32.4, upper: 34.2 }
   };
 
   beforeEach(() => {
@@ -66,13 +47,17 @@ describe('DataExportImport', () => {
     it('should export complete data with raw data', () => {
       const rawData = [
         {
-          playerInitialChoice: 0,
+          id: 1,
+          seed: '12345',
+          doors: 3,
+          hostModel: 'classic' as const,
+          strategy: 'alwaysSwitch' as const,
           prizeDoor: 1,
-          hostOpens: [2],
-          playerFinalChoice: 1,
-          playerWon: true,
-          playerSwitched: true,
-          hostBehavior: { model: 'classic' as const }
+          firstPick: 0,
+          hostOpened: 2,
+          switched: true,
+          finalPick: 1,
+          win: true
         }
       ];
 
@@ -178,8 +163,8 @@ describe('DataExportImport', () => {
       expect(sampleData.config).toHaveProperty('totalRuns');
       expect(sampleData.config).toHaveProperty('numberOfDoors');
       expect(sampleData.stats).toHaveProperty('totalRuns');
-      expect(sampleData.stats).toHaveProperty('totalWins');
-      expect(sampleData.stats).toHaveProperty('totalLosses');
+      expect(sampleData.stats).toHaveProperty('wins');
+      expect(sampleData.stats).toHaveProperty('losses');
       expect(sampleData.stats).toHaveProperty('winRate');
     });
   });

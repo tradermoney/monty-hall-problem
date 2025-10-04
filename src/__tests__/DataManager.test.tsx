@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../i18n';
@@ -29,36 +29,17 @@ describe('DataManager Component', () => {
     hostModel: 'classic' as const,
     playerStrategy: 'alwaysSwitch' as const,
     randomSeed: 12345,
-    hostBias: 0.7,
+    hostBias: { weights: {}, openProbability: 0.7 },
     silentProbability: 0.2
   };
 
   const mockStats = {
     totalRuns: 1000,
-    totalWins: 667,
-    totalLosses: 333,
+    wins: 667,
+    losses: 333,
     winRate: 66.7,
-    neverSwitch: {
-      wins: 333,
-      losses: 667,
-      winRate: 33.3,
-      standardError: 0.47,
-      confidenceInterval: { lower: 32.4, upper: 34.2 }
-    },
-    alwaysSwitch: {
-      wins: 667,
-      losses: 333,
-      winRate: 66.7,
-      standardError: 0.47,
-      confidenceInterval: { lower: 65.8, upper: 67.6 }
-    },
-    randomSwitch: {
-      wins: 500,
-      losses: 500,
-      winRate: 50.0,
-      standardError: 0.50,
-      confidenceInterval: { lower: 49.0, upper: 51.0 }
-    }
+    standardError: 0.47,
+    confidenceInterval: { lower: 32.4, upper: 34.2 }
   };
 
   const renderWithI18n = (component: React.ReactElement) => {

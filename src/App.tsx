@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { ParameterPanel } from './components/ParameterPanel/ParameterPanel';
 import AutoSimulation from './components/AutoSimulation/AutoSimulation';

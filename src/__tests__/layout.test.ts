@@ -73,8 +73,10 @@ test.describe('Page Layout Tests', () => {
         expect(prevComponent).toBeTruthy();
         
         // 确保组件不重叠（允许0间距）
-        const spacing = component.y - (prevComponent.y + prevComponent.height);
-        expect(spacing).toBeGreaterThanOrEqual(0);
+        if (component && prevComponent) {
+          const spacing = component.y - (prevComponent.y + prevComponent.height);
+          expect(spacing).toBeGreaterThanOrEqual(0);
+        }
       }
     }
   });
@@ -107,7 +109,7 @@ test.describe('Page Layout Tests', () => {
     });
     
     // 解析颜色值为RGB
-    const parseColor = (color) => {
+    const parseColor = (color: string) => {
       const match = color.match(/\d+/g);
       return match ? match.map(Number) : null;
     };

@@ -105,14 +105,14 @@ export class DataExportImport {
     }
 
     // 检查配置对象
-    const config = (obj as Record<string, unknown>).config;
-    if (!config.totalRuns || !config.numberOfDoors || !config.hostModel || !config.playerStrategy) {
+    const config = (obj as Record<string, unknown>).config as Record<string, unknown>;
+    if (!config || typeof config !== 'object' || !config.totalRuns || !config.numberOfDoors || !config.hostModel || !config.playerStrategy) {
       return false;
     }
 
     // 检查统计对象
-    const stats = (obj as Record<string, unknown>).stats;
-    if (!stats.totalRuns || !stats.totalWins || !stats.totalLosses || !stats.winRate) {
+    const stats = (obj as Record<string, unknown>).stats as Record<string, unknown>;
+    if (!stats || typeof stats !== 'object' || !stats.totalRuns || !stats.wins || !stats.losses || !stats.winRate) {
       return false;
     }
 
