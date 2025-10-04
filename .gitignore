@@ -125,7 +125,8 @@ build/Release
 
 # Gatsby files
 .cache/
-public
+public/*
+!public/404.html
 
 # Storybook build outputs
 .out
