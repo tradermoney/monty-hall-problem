@@ -85,7 +85,7 @@ export const DataManager: React.FC<DataManagerProps> = ({
         <div className="action-group">
           <h4>
             {t('dataManager.export')}
-            <FieldTooltip content="导出仿真数据到本地文件。可以导出统计摘要、完整数据或CSV格式，用于后续分析或保存记录。" />
+            <FieldTooltip content="导出数据到本地" />
           </h4>
           <div className="button-group">
             <button
@@ -115,7 +115,7 @@ export const DataManager: React.FC<DataManagerProps> = ({
         <div className="action-group">
           <h4>
             {t('dataManager.import')}
-            <FieldTooltip content="从本地文件导入之前保存的仿真数据，或生成示例数据来了解数据格式。支持JSON格式的数据文件。" />
+            <FieldTooltip content="导入数据或示例" />
           </h4>
           <div className="button-group">
             <button

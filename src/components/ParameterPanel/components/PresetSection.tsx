@@ -24,7 +24,7 @@ export const PresetSection: React.FC<PresetSectionProps> = ({
     <div className="parameter-section">
       <h3>
         预设配置
-        <FieldTooltip content="快速应用常用的参数组合。快速测试用于快速验证（1000次）；标准仿真用于常规分析（10000次）；高级仿真用于深入研究，包含更多门和复杂主持人模型（100000次）。" />
+        <FieldTooltip content="预设配置：快速/标准/高级" />
       </h3>
       <div className="preset-buttons">
         <button

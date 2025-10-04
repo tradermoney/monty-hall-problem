@@ -8,16 +8,17 @@
   position: absolute;
   background: rgba(0, 0, 0, 0.9);
   color: white;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 13px;
-  line-height: 1.5;
-  max-width: 300px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.4;
+  max-width: 240px;
   word-wrap: break-word;
   z-index: 10000;
   pointer-events: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  animation: tooltip-fade-in 0.2s ease-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  animation: tooltip-fade-in 0.15s ease-out;
+  white-space: normal;
 }
 
 @keyframes tooltip-fade-in {

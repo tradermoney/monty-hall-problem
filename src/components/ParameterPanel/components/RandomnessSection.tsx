@@ -19,7 +19,7 @@ export const RandomnessSection: React.FC<RandomnessSectionProps> = ({
       <div className="parameter-item">
         <label htmlFor="randomSeed">
           随机种子
-          <FieldTooltip content="设置随机数生成器的种子值。使用相同的种子可以重现完全相同的仿真结果，便于验证和调试。设为0则每次使用不同的随机种子，产生不同的随机序列。" />
+          <FieldTooltip content="随机种子，0为随机" />
         </label>
         <input
           id="randomSeed"

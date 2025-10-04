@@ -25,7 +25,7 @@ export const PlayerStrategySection: React.FC<PlayerStrategySectionProps> = ({
       <div className="parameter-item full-width">
         <label htmlFor="playerStrategy">
           玩家策略
-          <FieldTooltip content="选择玩家的决策策略。'从不换门'坚持初始选择（胜率约1/3）；'总是换门'接受所有换门建议（胜率约2/3）；'随机换门'随机决定是否换门（胜率约1/2）。这是验证蒙提霍尔问题的核心参数。" />
+          <FieldTooltip content="玩家策略：换/不换/随机" />
         </label>
         <select
           id="playerStrategy"

@@ -44,7 +44,7 @@ const AutoSimulation: React.FC = () => {
           <div className="config-item">
             <label>
               门的数量
-              <FieldTooltip content="设置游戏中门的总数量。经典蒙提霍尔问题使用3扇门，但可以扩展到更多门来研究概率变化。" />
+              <FieldTooltip content="门数，经典为3扇" />
             </label>
             <input
               type="number"
@@ -59,7 +59,7 @@ const AutoSimulation: React.FC = () => {
           <div className="config-item">
             <label>
               总实验次数
-              <FieldTooltip content="设置要运行的模拟总次数。次数越多，结果越接近理论概率值。" />
+              <FieldTooltip content="总实验次数" />
             </label>
             <input
               type="number"
@@ -75,7 +75,7 @@ const AutoSimulation: React.FC = () => {
           <div className="config-item">
             <label>
               批次大小
-              <FieldTooltip content="每次处理的仿真数量。较大的批次可以提高处理效率，但会增加单次更新的等待时间。" />
+              <FieldTooltip content="每批处理数" />
             </label>
             <input
               type="number"
@@ -91,7 +91,7 @@ const AutoSimulation: React.FC = () => {
           <div className="config-item">
             <label>
               主持人模型
-              <FieldTooltip content="选择主持人的行为方式。经典模式下主持人知道所有门后的情况；无知模式下可能意外打开奖品门；偏好模式下主持人有选择性地打开某些门；沉默模式下主持人有时不提供换门机会。" />
+              <FieldTooltip content="主持人行为模型" />
             </label>
             <select
               value={config.hostModel}
@@ -108,7 +108,7 @@ const AutoSimulation: React.FC = () => {
           <div className="config-item">
             <label>
               策略
-              <FieldTooltip content="选择玩家的决策策略。始终换门的胜率约为2/3，始终不换的胜率约为1/3，随机换门的胜率约为1/2。" />
+              <FieldTooltip content="玩家决策策略" />
             </label>
             <select
               value={config.playerStrategy}
@@ -124,7 +124,7 @@ const AutoSimulation: React.FC = () => {
           <div className="config-item">
             <label>
               随机种子
-              <FieldTooltip content="设置随机数生成器的种子值。使用相同的种子可以重现完全相同的仿真结果。留空则每次使用不同的随机种子。" />
+              <FieldTooltip content="随机种子，可重现结果" />
             </label>
             <input
               type="number"

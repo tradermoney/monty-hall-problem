@@ -26,7 +26,7 @@ export const HostModelSection: React.FC<HostModelSectionProps> = ({
       <div className="parameter-item full-width">
         <label htmlFor="hostModel">
           主持人行为模型
-          <FieldTooltip content="选择主持人的行为方式。经典模式下主持人知道所有门后的情况并总是打开有山羊的门；无知模式下主持人不知道门后情况，可能意外打开奖品门；有偏见模式下主持人有选择性地打开某些门；沉默模式下主持人有时不提供换门机会。" />
+          <FieldTooltip content="主持人行为：经典/无知/偏见/沉默" />
         </label>
         <select
           id="hostModel"
@@ -49,7 +49,7 @@ export const HostModelSection: React.FC<HostModelSectionProps> = ({
         <div className="parameter-item">
           <label htmlFor="hostBias">
             主持人偏见系数
-            <FieldTooltip content="设置主持人对某些门的偏好程度。值越大，主持人越倾向于打开特定的门。这个参数会影响游戏的公平性和最终的概率分布。" />
+            <FieldTooltip content="主持人偏好程度，影响公平性" />
           </label>
           <input
             id="hostBias"
@@ -76,7 +76,7 @@ export const HostModelSection: React.FC<HostModelSectionProps> = ({
         <div className="parameter-item">
           <label htmlFor="silentProbability">
             沉默概率
-            <FieldTooltip content="设置主持人不提供换门机会的概率。概率为0时主持人总是提供换门机会，概率为1时主持人从不提供换门机会。这个参数可以模拟主持人行为的不确定性。" />
+            <FieldTooltip content="主持人沉默概率(0-1)" />
           </label>
           <input
             id="silentProbability"

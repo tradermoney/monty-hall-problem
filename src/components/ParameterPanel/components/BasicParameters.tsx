@@ -20,7 +20,7 @@ export const BasicParameters: React.FC<BasicParametersProps> = ({
         <div className="parameter-item">
           <label htmlFor="totalRuns">
             总仿真次数
-            <FieldTooltip content="设置要运行的模拟次数。次数越多，结果越接近理论概率（2/3）。建议至少10000次以获得稳定结果。" />
+            <FieldTooltip content="模拟次数，建议≥10000" />
           </label>
           <input
             id="totalRuns"
@@ -39,7 +39,7 @@ export const BasicParameters: React.FC<BasicParametersProps> = ({
         <div className="parameter-item">
           <label htmlFor="numberOfDoors">
             门的数量
-            <FieldTooltip content="设置游戏中门的总数量。经典蒙提霍尔问题使用3扇门，但可以扩展到更多门来研究概率变化。门越多，换门策略的优势越明显。" />
+            <FieldTooltip content="游戏中门的数量，经典为3扇" />
           </label>
           <input
             id="numberOfDoors"
@@ -57,7 +57,7 @@ export const BasicParameters: React.FC<BasicParametersProps> = ({
         <div className="parameter-item">
           <label htmlFor="batchSize">
             批次大小
-            <FieldTooltip content="每次处理的仿真数量。较大的批次可以提高处理效率，但会增加单次更新的等待时间。建议设置为100-1000之间以平衡性能和实时反馈。" />
+            <FieldTooltip content="每批处理数，建议100-1000" />
           </label>
           <input
             id="batchSize"
