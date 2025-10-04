@@ -18,12 +18,15 @@ export const ReadmeViewer: React.FC = () => {
 
   const loadReadmeContent = async () => {
     try {
+      // 获取base路径
+      const base = import.meta.env.BASE_URL || '/';
+
       // 加载英文README
-      const enResponse = await fetch('/README.md');
+      const enResponse = await fetch(`${base}README.md`);
       const enContent = await enResponse.text();
 
       // 加载中文README
-      const zhResponse = await fetch('/README.zh-CN.md');
+      const zhResponse = await fetch(`${base}README.zh-CN.md`);
       const zhContent = await zhResponse.text();
 
       setReadmeContent({
