@@ -1,0 +1,53 @@
+/* 数据管理器基础样式 */
+.data-manager {
+  background: var(--card-bg);
+  border-radius: 6px;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.data-manager-header {
+  margin-bottom: 12px;
+}
+
+.data-manager-header h3 {
+  margin: 0 0 6px 0;
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.data-manager-description {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.data-manager-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.action-group {
+  background: var(--bg-secondary);
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.action-group h4 {
+  margin: 0 0 8px 0;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}

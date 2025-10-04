@@ -7,52 +7,52 @@
 
 /* Main container styles */
 .auto-simulation {
-  padding: 20px;
+  padding: 10px;
   background: var(--bg-secondary);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .auto-simulation h2 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: var(--text-primary);
   text-align: center;
 }
 
 .simulation-results {
   background: var(--results-bg);
-  padding: 20px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 6px;
   border: 1px solid var(--border-color);
 }
 
 .simulation-results h3 {
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   color: var(--text-primary);
-  font-size: 18px;
+  font-size: 15px;
   text-align: center;
 }
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 10px;
 }
 
 .strategy-card {
   background: var(--card-bg);
-  padding: 20px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 6px;
   border: 1px solid var(--border-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .strategy-card h4 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: var(--text-primary);
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
   border-bottom: 2px solid var(--border-color);
 }
 
@@ -60,7 +60,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0;
+  padding: 6px 0;
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -71,18 +71,18 @@
 .stat-label {
   font-weight: 500;
   color: var(--text-secondary);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .stat-value {
   font-weight: 600;
   color: var(--text-primary);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .stat-value.highlight {
   color: var(--primary-color);
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* 按钮样式 */
@@ -90,9 +90,9 @@
   background: var(--primary-color);
   color: white;
   border: none;
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -107,9 +107,9 @@
   background: var(--secondary-color);
   color: var(--text-primary);
   border: 2px solid var(--border-color);
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -124,9 +124,9 @@
   background: var(--danger-color);
   color: white;
   border: none;
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -139,9 +139,9 @@
 
 /* 主题变量 */
 :root {
-  --primary-color: #3b82f6;
-  --primary-hover: #2563eb;
-  --primary-light: #60a5fa;
+  --primary-color: #059669;
+  --primary-hover: #047857;
+  --primary-light: #10b981;
   --secondary-color: #f3f4f6;
   --secondary-hover: #e5e7eb;
   --danger-color: #ef4444;

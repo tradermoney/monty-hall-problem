@@ -1,44 +1,45 @@
 /* Configuration styles */
 .simulation-config {
   background: var(--config-bg);
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 6px;
   border: 1px solid var(--border-color);
+  margin-bottom: 10px;
 }
 
 .simulation-config h3 {
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   color: var(--text-primary);
-  font-size: 18px;
+  font-size: 14px;
+  text-align: center;
 }
 
 .config-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
 }
 
 .config-item {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 
 .config-item label {
   font-weight: 500;
   color: var(--text-primary);
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .config-item input,
 .config-item select {
-  padding: 8px 12px;
+  padding: 5px 8px;
   border: 1px solid var(--border-color);
   border-radius: 4px;
-  font-size: 14px;
   background: var(--input-bg);
   color: var(--text-primary);
+  font-size: 12px;
   transition: border-color 0.2s ease;
 }
 
@@ -46,7 +47,7 @@
 .config-item select:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.1);
 }
 
 .config-item input:disabled,

@@ -2,66 +2,65 @@
 .simulation-controls {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 6px;
+  margin: 10px 0;
   flex-wrap: wrap;
 }
 
 .control-button {
-  padding: 10px 20px;
+  padding: 6px 12px;
   border: none;
-  border-radius: 6px;
-  font-size: 14px;
+  border-radius: 4px;
+  font-size: 12px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  min-width: 65px;
 }
 
-.control-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.start-button {
+.control-button.start {
   background: var(--success-color);
   color: white;
 }
 
-.start-button:hover:not(:disabled) {
-  background: var(--success-dark);
+.control-button.start:hover:not(:disabled) {
+  background: var(--success-hover);
   transform: translateY(-1px);
 }
 
-.pause-button {
+.control-button.pause {
   background: var(--warning-color);
   color: white;
 }
 
-.pause-button:hover:not(:disabled) {
-  background: var(--warning-dark);
+.control-button.pause:hover:not(:disabled) {
+  background: var(--warning-hover);
   transform: translateY(-1px);
 }
 
-.stop-button {
+.control-button.stop {
   background: var(--error-color);
   color: white;
 }
 
-.stop-button:hover:not(:disabled) {
-  background: var(--error-dark);
+.control-button.stop:hover:not(:disabled) {
+  background: var(--error-hover);
   transform: translateY(-1px);
 }
 
-.reset-button {
-  background: var(--secondary-color);
-  color: var(--text-primary);
+.control-button.reset {
+  background: var(--button-bg);
+  color: var(--button-text);
   border: 1px solid var(--border-color);
 }
 
-.reset-button:hover:not(:disabled) {
-  background: var(--secondary-dark);
+.control-button.reset:hover:not(:disabled) {
+  background: var(--button-hover-bg);
   transform: translateY(-1px);
+}
+
+.control-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
 }

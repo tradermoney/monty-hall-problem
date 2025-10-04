@@ -1,0 +1,56 @@
+/* 按钮样式 */
+.data-button {
+  padding: 7px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.data-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.data-button:hover::before {
+  left: 100%;
+}
+
+.data-button.primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.data-button.primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.data-button.secondary {
+  background: var(--secondary-color);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.data-button.secondary:hover {
+  background: var(--secondary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.data-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.3);
+}

@@ -1,0 +1,84 @@
+/* App Layout Styles */
+.app-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 280px;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  position: sticky;
+  top: 70px;
+  align-self: flex-start;
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
+}
+
+.main-content {
+  min-height: 400px;
+}
+
+.data-sidebar {
+  position: sticky;
+  top: 70px;
+  align-self: flex-start;
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* 响应式布局 */
+@media (max-width: 1400px) {
+  .app-layout {
+    grid-template-columns: 260px 1fr 260px;
+    gap: 0.8rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .sidebar,
+  .data-sidebar {
+    position: static;
+    max-height: none;
+  }
+}
+
+/* Section Cards */
+.parameter-section,
+.simulation-section,
+.charts-section,
+.manual-game-section,
+.settings-section,
+.data-section {
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.parameter-section h2,
+.simulation-section h2,
+.charts-section h2,
+.manual-game-section h2,
+.settings-section h2,
+.data-section h2 {
+  margin: 0 0 0.6rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.3rem;
+}
