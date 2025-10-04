@@ -1,0 +1,242 @@
+.introduction {
+  width: 100%;
+  min-height: calc(100vh - 120px);
+  background: linear-gradient(135deg, #f8fafc 0%, #e0f2f1 100%);
+  padding: 2rem 1rem;
+}
+
+.introduction-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 3rem 2.5rem;
+}
+
+.intro-hero {
+  text-align: center;
+  padding-bottom: 2rem;
+  border-bottom: 3px solid var(--primary-color, #059669);
+  margin-bottom: 2.5rem;
+}
+
+.intro-hero h1 {
+  font-size: 2.5rem;
+  color: var(--text-primary, #1f2937);
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.intro-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary, #6b7280);
+  margin: 0;
+  font-weight: 400;
+}
+
+.intro-section {
+  margin-bottom: 2.5rem;
+}
+
+.intro-section h2 {
+  font-size: 1.8rem;
+  color: var(--text-primary, #1f2937);
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.intro-section h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  width: 4px;
+  height: 1.5rem;
+  background: var(--primary-color, #059669);
+  border-radius: 2px;
+}
+
+.intro-section h3 {
+  font-size: 1.3rem;
+  color: var(--text-primary, #1f2937);
+  margin: 1.5rem 0 0.8rem 0;
+  font-weight: 600;
+}
+
+.intro-section p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary, #4b5563);
+  margin: 0 0 1rem 0;
+}
+
+.intro-section ul,
+.intro-section ol {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary, #4b5563);
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.intro-section li {
+  margin-bottom: 0.8rem;
+}
+
+.problem-description {
+  background: #f0fdfa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color, #059669);
+}
+
+.problem-question {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.answer-highlight {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 1.2rem 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.probability-analysis {
+  background: #fefce8;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #eab308;
+}
+
+.probability-analysis ul li {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border-left: 3px solid #eab308;
+}
+
+.conclusion {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-color, #059669);
+}
+
+.key-insights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.insight-card {
+  background: linear-gradient(135deg, #f0fdfa 0%, #ecfdf5 100%);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #a7f3d0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.insight-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(5, 150, 105, 0.15);
+}
+
+.insight-card h3 {
+  font-size: 1.2rem;
+  margin: 0 0 0.8rem 0;
+  color: var(--primary-color, #059669);
+}
+
+.insight-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cta-section {
+  background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid #c4b5fd;
+}
+
+.cta-section h2 {
+  color: #7c3aed;
+}
+
+.cta-section h2::before {
+  background: #7c3aed;
+}
+
+.cta-text {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #7c3aed;
+  margin-top: 1rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .introduction-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .intro-hero h1 {
+    font-size: 2rem;
+  }
+
+  .intro-subtitle {
+    font-size: 1rem;
+  }
+
+  .intro-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .intro-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .intro-section p,
+  .intro-section ul,
+  .intro-section ol {
+    font-size: 1rem;
+  }
+
+  .key-insights {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .introduction {
+    padding: 1rem 0.5rem;
+  }
+
+  .introduction-container {
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+  }
+
+  .intro-hero h1 {
+    font-size: 1.75rem;
+  }
+}

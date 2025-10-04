@@ -5,11 +5,13 @@ import ManualGame from './components/ManualGame/ManualGame';
 import { StatisticsCharts } from './components/StatisticsCharts/StatisticsCharts';
 import { DataManager } from './components/DataManager/DataManager';
 import { Settings } from './components/Settings/Settings';
+import { Introduction } from './components/Introduction/Introduction';
 import { useSimulationStore } from './stores/simulationStore';
 import type { SimulationConfig } from './types';
 import './App.css';
 
 function App() {
+  const [mainPage, setMainPage] = useState<'introduction' | 'demo'>('demo');
   const [activeTab, setActiveTab] = useState<'auto' | 'manual' | 'settings'>('auto');
   const {
     config,
@@ -36,33 +38,54 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>蒙提霍尔问题模拟器</h1>
-        <p>探索经典的概率问题：换门还是不换门？</p>
-        
+        <h1 className="app-title">蒙提霍尔问题模拟器</h1>
+
         <nav className="app-nav">
-          <button 
-            className={`nav-button ${activeTab === 'auto' ? 'active' : ''}`}
-            onClick={() => setActiveTab('auto')}
-          >
-            自动模拟
-          </button>
-          <button 
-            className={`nav-button ${activeTab === 'manual' ? 'active' : ''}`}
-            onClick={() => setActiveTab('manual')}
-          >
-            手动游戏
-          </button>
-          <button 
-            className={`nav-button ${activeTab === 'settings' ? 'active' : ''}`}
-            onClick={() => setActiveTab('settings')}
-          >
-            设置
-          </button>
+          <div className="main-nav">
+            <button
+              className={`nav-button main-nav-button ${mainPage === 'introduction' ? 'active' : ''}`}
+              onClick={() => setMainPage('introduction')}
+            >
+              三门问题介绍
+            </button>
+            <button
+              className={`nav-button main-nav-button ${mainPage === 'demo' ? 'active' : ''}`}
+              onClick={() => setMainPage('demo')}
+            >
+              三门问题演示
+            </button>
+          </div>
+
+          {mainPage === 'demo' && (
+            <div className="sub-nav">
+              <button
+                className={`nav-button ${activeTab === 'auto' ? 'active' : ''}`}
+                onClick={() => setActiveTab('auto')}
+              >
+                自动模拟
+              </button>
+              <button
+                className={`nav-button ${activeTab === 'manual' ? 'active' : ''}`}
+                onClick={() => setActiveTab('manual')}
+              >
+                手动游戏
+              </button>
+              <button
+                className={`nav-button ${activeTab === 'settings' ? 'active' : ''}`}
+                onClick={() => setActiveTab('settings')}
+              >
+                设置
+              </button>
+            </div>
+          )}
         </nav>
       </header>
 
       <main className="app-main">
-        <div className="app-layout">
+        {mainPage === 'introduction' ? (
+          <Introduction />
+        ) : (
+          <div className="app-layout">
           {/* 左侧参数面板 */}
           <aside className="sidebar">
             <section className="parameter-section">
@@ -126,6 +149,7 @@ function App() {
             </section>
           </aside>
         </div>
+        )}
       </main>
 
       <footer className="app-footer">
